@@ -47,6 +47,6 @@ public class CompleteDeclaration extends Declaration {
 			
 		}
 		return contribution;
-	}
+	} 
 	
 }
