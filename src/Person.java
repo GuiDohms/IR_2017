@@ -1,5 +1,20 @@
 
 public class Person {
+	
+	 /*
+	 • Nome*
+	 • CPF*
+	 • Idade**
+	 • Número de dependentes**
+	 • Contribuição previdenciária oficial***
+	 • Total de rendimentos***
+	 *Campos obrigatórios para todos os contribuintes
+	 **Campos obrigatórios para os contribuintes que fazem declaração completa
+	 ***Campos obriggatórios para permitir o cálculo do imposto (qualquer
+        modalidade)
+*/
+	
+	
 	private String name, cpf;
 	private int age, numDependent;
 	private double previdentiaryContribution, revenueTotal;
