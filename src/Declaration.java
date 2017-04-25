@@ -1,5 +1,5 @@
 
-public class Person {
+public class Declaration {
 	
 	 /*
 	 • Nome*
@@ -16,14 +16,12 @@ public class Person {
 	
 	
 	private String name, cpf;
-	private int age, numDependent;
+	//private int age, numDependent;
 	private double previdentiaryContribution, revenueTotal;
 	
-	public Person(String name, String cpf, int age, int numDependent, double previdentiaryContribution, double revenueTotal) {
+	public Declaration(String name, String cpf, double previdentiaryContribution, double revenueTotal) {
 		this.name = name;
 		this.cpf = cpf;
-		this.age = age;
-		this.numDependent = numDependent;
 		this.previdentiaryContribution = previdentiaryContribution;
 		this.revenueTotal = revenueTotal;
 	}
@@ -42,22 +40,6 @@ public class Person {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public int getNumDependent() {
-		return numDependent;
-	}
-
-	public void setNumDependent(int numDependent) {
-		this.numDependent = numDependent;
 	}
 
 	public double getPrevidentiaryContribution() {
