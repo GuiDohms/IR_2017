@@ -46,7 +46,7 @@ public class CompleteDeclaration extends Declaration {
 		}if(baseMath()>=24.000){
 			
 		}
-		return contribution;
+		return contribution; 
 	} 
 	
 }
