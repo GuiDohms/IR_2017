@@ -34,8 +34,9 @@ public class FullTaxFrame extends JFrame {
 	private JTextField textFieldAge;
 	private JTextField textFieldNumDependents;
 
-	private JButton btnClear;
+	private JButton btnBack;
 	private JButton btnCalculate;
+	private JButton button;
 	
 	/**
 	 * Launch the application.
@@ -68,73 +69,78 @@ public class FullTaxFrame extends JFrame {
 		
 		lblName = new JLabel("Name");
 		lblName.setBounds(30, 40, 350, 20);
-		this.add(lblName);
+		getContentPane().add(lblName);
 
 		textFieldName = new JTextField();
 		textFieldName.setBounds(30, 60, 350, 20);
-		this.add(textFieldName);
+		getContentPane().add(textFieldName);
 
 		lblCpf = new JLabel("CPF");
 		lblCpf.setBounds(30, 85, 350, 20);
-		this.add(lblCpf);
+		getContentPane().add(lblCpf);
 
 		textFieldCpf = new JTextField();
 		textFieldCpf.setBounds(30, 105, 195, 20);
-		this.add(textFieldCpf);
+		getContentPane().add(textFieldCpf);
 
 		lblTotalIncome = new JLabel("Total Income");
 		lblTotalIncome.setBounds(30, 130, 350, 20);
-		this.add(lblTotalIncome);
+		getContentPane().add(lblTotalIncome);
 
 		texFieldTotalIncome = new JTextField();
 		texFieldTotalIncome.setBounds(30, 150, 195, 20);
-		this.add(texFieldTotalIncome);
+		getContentPane().add(texFieldTotalIncome);
 
 		lblSocialSecurityContribution = new JLabel("SS Contribution");
 		lblSocialSecurityContribution.setBounds(30, 175, 350, 20);
-		this.add(lblSocialSecurityContribution);
+		getContentPane().add(lblSocialSecurityContribution);
 
 		textFieldSocialSecurityContribution = new JTextField();
 		textFieldSocialSecurityContribution.setBounds(30, 195, 195, 20);
-		this.add(textFieldSocialSecurityContribution);
+		getContentPane().add(textFieldSocialSecurityContribution);
 
 		lblAge = new JLabel("Age");
 		lblAge.setBounds(30, 220, 350, 20);
-		this.add(lblAge);
+		getContentPane().add(lblAge);
 
 		textFieldAge = new JTextField();
 		textFieldAge.setBounds(30, 240, 195, 20);
-		this.add(textFieldAge);
+		getContentPane().add(textFieldAge);
 
 		lblTotalDependents = new JLabel("Number of Dependents");
 		lblTotalDependents.setBounds(30, 265, 350, 20);
-		this.add(lblTotalDependents);
+		getContentPane().add(lblTotalDependents);
 
 		textFieldNumDependents = new JTextField();
 		textFieldNumDependents.setBounds(30, 285, 195, 20);
-		this.add(textFieldNumDependents);
+		getContentPane().add(textFieldNumDependents);
 
 		lblIncomeTax = new JLabel("Income Tax:");
 		lblIncomeTax.setBounds(30, 320, 195, 20);
-		this.add(lblIncomeTax);
+		getContentPane().add(lblIncomeTax);
 
-		btnClear = new JButton("Clear");
-		btnClear.setBounds(296, 378, 84, 23);
-		btnClear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				do_btnClear_actionPerformed(e);
+		btnBack = new JButton("Back");
+		btnBack.setBounds(30, 375, 84, 23);
+		btnBack.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				IR_2017 nwIR = new IR_2017();
+				nwIR.setVisible(true);
 			}
 		});
-		this.add(btnClear);
+		getContentPane().add(btnBack);
 
 		btnCalculate = new JButton("Calculate");
-		btnCalculate.setBounds(385, 378, 89, 23);
+		btnCalculate.setBounds(386, 375, 89, 23);
 		btnCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				do_btnCalculate_actionPerformed(e);
 			}
 		});
-		this.add(btnCalculate);
+		getContentPane().add(btnCalculate);
+		
+		button = new JButton("Clear");
+		button.setBounds(296, 375, 84, 23);
+		contentPane.add(button);
 	}
 
 	protected void do_btnCalculate_actionPerformed(ActionEvent e) {

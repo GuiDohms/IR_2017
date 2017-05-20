@@ -86,7 +86,7 @@ public class IR_2017 extends JFrame {
 		simpleTax.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				SimpleTaxFrame nws = new SimpleTaxFrame();
-				nws.setVisible(true);;
+				nws.setVisible(true);
 			}
 		});
 		

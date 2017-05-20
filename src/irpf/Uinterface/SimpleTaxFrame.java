@@ -32,6 +32,7 @@ public class SimpleTaxFrame extends JFrame {
 
 	private JButton btnClear;
 	private JButton btnCalculate;
+	private JButton btnBack;
 	/**
 	 * Launch the application.
 	 */
@@ -109,6 +110,16 @@ public class SimpleTaxFrame extends JFrame {
 				}
 			});
 			this.add(btnClear);
+			
+			btnBack = new JButton("Back");
+			btnBack.setBounds(30, 375, 84, 23);
+			btnBack.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					IR_2017 nwIR = new IR_2017();
+					nwIR.setVisible(true);
+				}
+			});
+			getContentPane().add(btnBack);
 
 			btnCalculate = new JButton("Calculate");
 			btnCalculate.setBounds(385, 378, 89, 23);
