@@ -1,24 +1,24 @@
 package irpf.Uinterface;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import irpf.Uinterface.*;
-import irpf.negocio.TaxPaymentComplete;
-import irpf.negocio.TaxPaymentC;
-import irpf.negocio.TaxPaymentSimple;
-import irpf.negocio.TaxPaymentS;
 import irpf.negocio.Checker;
-import irpf.negocio.TaxPayer;
 import irpf.negocio.TaxPayerComplete;
+import irpf.negocio.TaxPaymentC;
 
-public class FullTaxPanel extends JPanel {
-	
+public class FullTaxFrame extends JFrame {
+
+	private JPanel contentPane;
 	private JLabel lblName;
 	private JLabel lblCpf;
 	private JLabel lblTotalIncome;
@@ -36,13 +36,36 @@ public class FullTaxPanel extends JPanel {
 
 	private JButton btnClear;
 	private JButton btnCalculate;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FullTaxFrame frame = new FullTaxFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-	public FullTaxPanel() {}
-
-	public void makeForm() {
-		this.setBounds(0, 0, 500, 450);
-		this.setLayout(null);
-
+	/**
+	 * Create the frame.
+	 */
+	public FullTaxFrame() {
+		setResizable(false);
+		setTitle("Income Tax Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 500, 450);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
 		lblName = new JLabel("Name");
 		lblName.setBounds(30, 40, 350, 20);
 		this.add(lblName);
@@ -144,5 +167,6 @@ public class FullTaxPanel extends JPanel {
 		textFieldNumDependents.setText("");
 		lblIncomeTax.setText("Income Tax:");
 	}
-	
 }
+
+

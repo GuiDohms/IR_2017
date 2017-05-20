@@ -18,12 +18,13 @@ import javax.swing.JMenu;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.UIManager;
 
 public class IR_2017 extends JFrame {
 
 	private JPanel contentPane;
-	private SimpleTaxPanel simpleTaxPanel;
-	private FullTaxPanel fullTaxPanel;
+	private SimpleTaxFrame simpleTaxFrame;
+	private FullTaxFrame fullTaxFrame;
 	
 	
 	/**
@@ -51,6 +52,8 @@ public class IR_2017 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 450);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(0, 0, 255));
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -61,9 +64,12 @@ public class IR_2017 extends JFrame {
 		contentPane.add(menuBar);
 
 		JMenu mnFile = new JMenu("Exit");
+		mnFile.setFont(new Font("Courier", Font.PLAIN, 14));
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmExit = new JMenuItem("Bye");
+		mntmExit.setForeground(new Color(255, 0, 0));
+		mntmExit.setFont(new Font("Courier", Font.PLAIN, 14));
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.exit(0);
@@ -74,46 +80,53 @@ public class IR_2017 extends JFrame {
 	
 		JButton simpleTax = new JButton("Simple Tax");
 		simpleTax.setBackground(Color.DARK_GRAY);
-		simpleTax.setForeground(Color.LIGHT_GRAY);
+		simpleTax.setForeground(new Color(0, 0, 0));
 		simpleTax.setFont(new Font("Courier", Font.BOLD, 57));
 		simpleTax.setBounds(19, 53, 454, 113);
-		contentPane.add(simpleTax);
 		simpleTax.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				
+				SimpleTaxFrame nws = new SimpleTaxFrame();
+				nws.setVisible(true);;
 			}
 		});
 		
 		JButton fullTax = new JButton("Full Tax");
-		fullTax.setForeground(Color.GRAY);
+		fullTax.setForeground(new Color(128, 0, 0));
 		fullTax.setFont(new Font("Courier", Font.BOLD, 57));
-		fullTax.setBackground(Color.LIGHT_GRAY);
+		fullTax.setBackground(new Color(0, 0, 0));
 		fullTax.setBounds(19, 225, 454, 113);
+		fullTax.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				FullTaxFrame nwf = new FullTaxFrame();
+				nwf.setVisible(true);;
+			}
+		});
+		contentPane.add(simpleTax);
 		contentPane.add(fullTax);
 
 		// Simple tax calculator
-		simpleTaxPanel = new SimpleTaxPanel();
-		simpleTaxPanel.makeForm();
+		simpleTaxFrame = new SimpleTaxFrame();
+		simpleTaxFrame.setVisible(true);
 
-		// full tax calculator
-		fullTaxPanel = new FullTaxPanel();
-		fullTaxPanel.makeForm();
+		 //full tax calculator
+		fullTaxFrame = new FullTaxFrame();
+		fullTaxFrame.setVisible(true);;
 	}
 
-	protected void do_mntmSimplifiedTaxReturn_actionPerformed(ActionEvent e) {
-		changePanel(simpleTaxPanel);
-	}
+	//protected void do_mntmSimplifiedTaxReturn_actionPerformed(ActionEvent e) {
+	//	changeFrame(simpleTaxFrame);
+	//}
 
-	protected void do_mntmCompleteTaxReturn_actionPerformed(ActionEvent e) {
-		changePanel(fullTaxPanel);
-	}
+	//protected void do_mntmCompleteTaxReturn_actionPerformed(ActionEvent e) {
+	//	changePanel(fullTaxPanel);
+	//}
 
-	private void changePanel(JPanel panel) {
+	/*private void changePanel(JPanel panel) {
 		if (contentPane.getComponents().length > 1) {
 			contentPane.remove(contentPane.getComponent(1));
 		}
 		contentPane.add(panel);
 		contentPane.revalidate();
 		contentPane.repaint();
-	}
+	}*/
 }
